@@ -1,4 +1,4 @@
-
+package com.tedu.sp04.order.controller;
 
 import java.util.Arrays;
 
@@ -17,12 +17,12 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-public class a {
+public class OrderController {
 	@Autowired
 	private OrderService orderService;
 	
 	@GetMapping("/{orderId}")
-	public JsonResult<Order> getOrder(@PathVariable String orderId) {
+	public JsonResult<Order> getOrder(@PathVariable(value = "orderId") String orderId) {
 		log.info("get order, id="+orderId);
 		
 		Order order = orderService.getOrder(orderId);
